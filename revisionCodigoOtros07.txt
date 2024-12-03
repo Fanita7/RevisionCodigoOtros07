@@ -1,0 +1,57 @@
+dice Selene que:
+
+Cosas positivas:
+
+La corrección mejora mucho el uso del HashMap, que ahora está bien configurado para almacenar países y sus capitales. Además, el flujo del programa es mucho más claro con el uso correcto de equals() y containsKey(), y el ciclo do-while permite que el programa siga pidiendo datos hasta que el usuario decida salir. También está bien que se cierre el Scanner al final, siguiendo una buena práctica. Empleas muy bien la documentación, lo que demuestra un buen entendimiento de la estructura en Java, sus métodos y funciones.
+
+Cosas a mejorar:
+
+Hay detalles que se podrían mejorar, como el hecho de usar la misma variable ca tanto para el HashMap como para la entrada del usuario, lo que puede resultar confuso. También hay un error tipográfico con Sting c, que debe ser String c. Además, sería ideal mejorar la consistencia en la capitalización de algunos países y hacer que el mensaje cuando el usuario aporte una nueva capital sea más amigable.
+
+
+package revisionCodigoOtros07;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class RevisionCodigoOtros07 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+	    HashMap<String, String> ca = new HashMap<String, String>(); //<strings>
+
+	    ca.put("Canadá", "Otawwa"); //ca
+	    ca.put("Estados Unidos", "Washington DC");//ca
+	    ca.put("México", "Ciudad de México");//ca // Ciudad de 
+	    ca.put("Belice", "Belmopán");//ca
+	    ca.put("Costa rica", "San José");//ca
+	    ca.put("El Salvador", "San Salvador"); // capital//ca
+	    ca.put("Guatemala", "Ciudad de Guatemala");//ca
+	    ca.put("Honduras", "Tegucigalpa");//ca
+	    ca.put("Nicaragua", "Managua");//ca
+	    ca.put("Panamá", "Panamá");//ca
+	   
+		Scanner s = new Scanner(System.in); //system .in se agrega
+		
+	    String c = ""; //string
+	    do {
+	      System.out.print("Escribe el nombre de un país y te diré su capital: "); //out
+	      c = s.nextLine(); //Line
+	 
+	    
+	      if (!c.equals("salir")) { //equals
+	        if (ca.containsKey(c)) { //Key
+	          System.out.println("La capital de " + c); //out // ln
+	          System.out.println(" es " + ca.get(c)); //get
+	        } else {
+	          System.out.print("No conozco la respuesta ");
+	          System.out.print("¿cuál es la capital de " + c + "?: "); //ca
+	          String a = s.nextLine();
+	          ca.put(c, a); // a
+	          System.out.println("Gracias por enseñarme nuevas capitales");
+	        }
+	      }
+	    } while (!c.equals("salir")); //while // )
+	     s.close(); //cerrar scanner
+	     
+	}
